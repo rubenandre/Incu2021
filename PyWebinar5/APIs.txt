@@ -1,0 +1,49 @@
+1. ACI
+	Sandbox: https://sandboxapicem.cisco.com/
+	username: devnetuser
+	password: Cisco123!
+	
+	1.1. Get ACI Ticket
+	curl --request POST \
+	--url https://sandboxapicem.cisco.com/api/v1/ticket \
+	--header 'Content-Type: application/json' \
+	--data '{
+		"username": "devnetuser",
+		"password": "Cisco123!"
+	}'
+	
+	1.2 Get Devices
+	curl --request GET \
+	--url https://sandboxapicem.cisco.com/api/v1/network-device \
+	--header 'x-auth-token: ST-2941-ixteYMniZaPCSmVeHCE2-cas'
+	
+2. DNA Center
+	sandbox: https://sandboxdnac.cisco.com 
+	username: devnetuser 
+	password: Cisco123!
+	
+	2.1 Get Token
+	curl --request POST \
+	--url https://sandboxdnac.cisco.com/dna/system/api/v1/auth/token \
+	--header 'Authorization: Basic ZGV2bmV0dXNlcjpDaXNjbzEyMyE='
+	
+	2.2 Get Device List
+	curl --request GET \
+	--url https://sandboxdnac.cisco.com/dna/intent/api/v1/network-device \
+	--header 'x-auth-token: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MDJjMGUyODE0NzEwYTIyZDFmN2UxNzIiLCJhdXRoU291cmNlIjoiaW50ZXJuYWwiLCJ0ZW5hbnROYW1lIjoiVE5UMCIsInJvbGVzIjpbIjYwMmJlYmU1MTQ3MTBhMDBjOThmYTQwOSJdLCJ0ZW5hbnRJZCI6IjYwMmJlYmU1MTQ3MTBhMDBjOThmYTQwMiIsImV4cCI6MTYxNTU2NjY0OCwiaWF0IjoxNjE1NTYzMDQ4LCJqdGkiOiI2MGM2YjM2ZC1jMmVlLTRlMDUtYjQwNi03NTQ4NTRjNzBmZDYiLCJ1c2VybmFtZSI6ImRldm5ldHVzZXIifQ.pHBykntR6mxZ1hZOBMgVDK9s_0C384BT4QfKSmjztxxegj23tq2JWvGrhuAeiD8vhrXQQhswsB76ksTxlI1WJI7sIVGT_iwRvSPJylUJCAa2rh9p_6yjWlfDniKRW_HTaf2kqZycieA7L_2lg_fuofStQ8OvygKJUe1esmZDDSD1gBzHhyqAxf7o3n_YzSxL2fwP-4jupYu63LMpB7GLKm5DGTCJikn4wtg7MJtr4RYsYvgyuRFoKNiLPtePfWWOfnmH3shPp3cG2EVvJABCrd5_Cq-LTa9dftEA5DjSO24TyE7CN_IGstWXmzMie6Fj3zbbru1EVWvFlBPJxm2zyg'
+	
+3. Meraki
+	Meraki base URL: https://api.meraki.com/api/v1
+	Meraki API-Key: 6bec40cf957de430a6f1f2baa056b99a4fac9ea0
+	
+	3.1 Get all organizations to retrieve the "DevNet Sandbox" organization id
+	curl --request GET \
+	--url https://api.meraki.com/api/v1/organizations \
+	--header 'X-Cisco-Meraki-API-Key: 6bec40cf957de430a6f1f2baa056b99a4fac9ea0'
+	
+	3.2 Get list of hosts of "DevNet Sandbox" organization
+	curl --request GET \
+	--url https://api.meraki.com/api/v1/organizations/549236/inventoryDevices \
+	--header 'X-Cisco-Meraki-API-Key: 6bec40cf957de430a6f1f2baa056b99a4fac9ea0'
+		
+	
